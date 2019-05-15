@@ -1,20 +1,21 @@
-<div class="container mb-3 pb-3 border-bottom bg-white">
-  <h1>Our Cocktails</h1>
-  <%= link_to "Create new Cocktail", new_cocktail_path, class: "btn btn-primary"%>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path("x8iluwga0a1ago3rmnld", crop: :fill) %>');">
+  <div class="container">
+  <h1>Emerald Cocktails</h1>
+    <p>Don't get too drunk in the process</p>
+    <%= link_to "Create", new_cocktail_path, class: "btn btn-success"%>
+  </div>
 </div>
 
-<!-- app/views/articles/index.html.erb -->
-<%= cl_image_tag("x8iluwga0a1ago3rmnld",
-      width: 400, height: 300, crop: :fill) %>
 
-<!-- for face detection -->
-<%= cl_image_tag("jzqpdxhtivc3n33fplx8",
-      width: 150, height: 150, crop: :thumb, gravity: :face) %>
+<div class="container justify-content-center d-flex flex-column pt-4">
+<h2 class="ml-3">Top Drinks</h2>
 
-<div class="container justify-content-center d-flex flex-column">
-<% @cocktails.each do |c| %>
-  <div class="card bg-white p-3 m-3">
-    <%= link_to c.name, cocktail_path(c) %>
-  </div>
-<% end %>
+<div class="cards">
+  <% @cocktails.each do |c| %>
+    <%= link_to cocktail_path(c) do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path("x8iluwga0a1ago3rmnld", crop: :fill) %>');">
+        <%= c.name %>
+      </div>
+    <% end %>
+  <% end %>
 </div>
