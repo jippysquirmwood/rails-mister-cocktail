@@ -1,13 +1,13 @@
 <h1><%= @cocktail.name %></h1>
 
 <% @cocktail.doses.each do |d| %>
-  <%= d.ingredient.name %> - <%= d.description %>
-   |
-   <%= link_to dose_path(d), method: :delete do %>
-    <i class="fas fa-trash"></i>
-   <% end %>
-
-
+  <p>
+    <%= d.ingredient.name %> - <%= d.description %>
+     |
+     <%= link_to dose_path(d), method: :delete do %>
+      <i class="fas fa-trash"></i>
+     <% end %>
+   </p>
 <% end %>
 
 
