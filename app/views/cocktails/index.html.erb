@@ -2,20 +2,37 @@
   <div class="container">
   <h1>Emerald Cocktails</h1>
     <p>Don't get too drunk in the process</p>
-    <%= link_to "Create", new_cocktail_path, class: "btn btn-success"%>
   </div>
 </div>
 
-
 <div class="container justify-content-center d-flex flex-column pt-4">
-<h2 class="ml-3">Top Drinks</h2>
+  <h2 class="ml-3">Top Drinks</h2>
 
-<div class="cards">
-  <% @cocktails.each do |c| %>
-    <%= link_to cocktail_path(c) do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path("x8iluwga0a1ago3rmnld", crop: :fill) %>');">
-        <%= c.name %>
+  <div class="cards">
+    <%= link_to new_cocktail_path do %>
+      <div class="card-category" id="new-cocktail">
+        Make one!
       </div>
     <% end %>
-  <% end %>
+    <% @cocktails.each do |c| %>
+      <%= link_to cocktail_path(c) do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path("x8iluwga0a1ago3rmnld", crop: :fill) %>');">
+          <%= c.name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div class="icon-container">
+    <a href="https://laminarprojects.com/" target="blank" https://laminarprojects.com/><img src="assets/emerald_frame" width="40" alt="..."></a>
+  <div>
+
+  </div>
