@@ -1,14 +1,28 @@
-<h1><%= @cocktail.name %></h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path("x8iluwga0a1ago3rmnld", crop: :fill) %>');">
+  <div class="container">
+  <h1><%= @cocktail.name %></h1>
+  </div>
+</div>
 
-<% @cocktail.doses.each do |d| %>
-  <p>
-    <%= d.ingredient.name %> - <%= d.description %>
-     |
-     <%= link_to dose_path(d), method: :delete do %>
-      <i class="fas fa-trash"></i>
-     <% end %>
-   </p>
-<% end %>
+
+
+<div class="container mt-3">
+  <h2>Ingredients</h2>
+  <% @cocktail.doses.each do |d| %>
+    <div class="notification">
+      <div class="notification-content">
+        <p><small><%= d.ingredient.name %></small></p>
+        <p><%= d.description %></p>
+      </div>
+
+      <div class="notification-actions">
+         <%= link_to dose_path(d), method: :delete do %>
+          Delete <i class="fas fa-trash-alt"></i>
+         <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 
 <p><%= link_to "Back", root_path %> <span>|</span> <%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail) %></p>
